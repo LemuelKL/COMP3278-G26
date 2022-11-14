@@ -1,4 +1,4 @@
-# COMP3378 Group 26
+# COMP3278 Group 26
 
 ## Frontend
 

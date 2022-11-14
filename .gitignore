@@ -1,0 +1,3 @@
+*.ve
+reference/FaceRecognition/data/
+*train.yml

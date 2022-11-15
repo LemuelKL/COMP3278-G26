@@ -6,10 +6,11 @@ import LoginFacePageVue from 'pages/LoginFacePage.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    name: 'index',
     component: IndexPageVue,
   },
-  { path: '/login', component: LoginPageVue },
-  { path: '/login/face/:username', component: LoginFacePageVue },
+  { path: '/login', name: 'login', component: LoginPageVue },
+  { path: '/login/face/:username', name: 'face', component: LoginFacePageVue },
   // Always leave this as last one,
   // but you can also remove it
   {

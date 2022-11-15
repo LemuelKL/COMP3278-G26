@@ -156,7 +156,7 @@ Select course_title, classroom, start_time, end_time from Student as s, hasCours
     and t.timeSlot_id = c.timeSlot_id
     and s.student_id = 1;
 
-# Insert Record (Input: student_id, login_time, logout_time)
+# Insert Record (Input: student_id, login_time, logout_time, duration)
 Insert into Record
     values (Input);
 

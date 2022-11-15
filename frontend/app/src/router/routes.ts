@@ -1,18 +1,15 @@
 import { RouteRecordRaw } from 'vue-router';
+import IndexPageVue from 'pages/IndexPage.vue';
+import LoginPageVue from 'pages/LoginPage.vue';
+import LoginFacePageVue from 'pages/LoginFacePage.vue';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    component: IndexPageVue,
   },
-
-  {
-    path: '/login/:username',
-    component: () => import('layouts/LoginLayout.vue'),
-    children: [{ path: '', component: () => import('pages/LoginPage.vue') }],
-  },
-
+  { path: '/login', component: LoginPageVue },
+  { path: '/login/face/:username', component: LoginFacePageVue },
   // Always leave this as last one,
   // but you can also remove it
   {

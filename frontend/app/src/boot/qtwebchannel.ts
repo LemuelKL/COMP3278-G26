@@ -1,18 +1,37 @@
 import { boot } from 'quasar/wrappers'
 
-// "async" is optional;
-// more info on params: https://v2.quasar.dev/quasar-cli/boot-files
-// export default boot(async (/* { app, router, ... } */) => {
-//   // something to do
-// })
+
+interface WebAppHost {
+  recognizeFace(username: string, image: string, callback: (status: boolean) => void): void
+  checkUsername(username: string, callback: (userExists: boolean) => void): void
+  recordLogout(): void
+  getLastLoginDtStr(callback: (lastLoginDtStr: string) => void): void
+  getUsername(callback: (username: string) => void): void
+
+  getTimetable(callback: (timetableStr: string) => void): void
+  getUpcomingLesson(callback: (upcomingLessonStr: string) => void): void
+
+  updateStudentProfile(username: string): void
+}
 
 import { QWebChannel } from 'qwebchannel'
-let wahost = null
+let wahost = null as WebAppHost | null
 
+
+function bootWrapper() { 
+  return new Promise<WebAppHost>((resolve, reject) => {
+    // this `qt` variable will be available at run time in the QtWebEngine process
+    new QWebChannel(qt.webChannelTransport, (channel: {objects: {web_app_host: WebAppHost}}) => {
+      resolve(channel.objects.web_app_host)
+    }, reject)
+  })
+}
+
+
+console.log('booting qtwebchannel')
 export default boot(async () => {
-  new QWebChannel(qt.webChannelTransport, function (channel: { objects: { web_app_host: any; }; }) {
-    wahost = channel.objects.web_app_host;
-  });
+  wahost = await bootWrapper()
+  console.log('qtwebchannel booted')
 });
 
 export { wahost }

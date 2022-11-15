@@ -15,13 +15,16 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Go Home"
+        label="Go to Login"
         no-caps
+        @click="goToLogin"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+function goToLogin() {
+  window.location.href = '/login';
+}
 </script>

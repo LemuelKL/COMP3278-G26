@@ -48,12 +48,12 @@ function stillCapture(
   context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
   canvas.toBlob(function (jpegBlob: any) {
     blobToBase64(jpegBlob).then((d) =>
-      wahost.recognizeFace(
-        route.params.username,
-        d,
+      wahost?.recognizeFace(
+        route.params.username as string,
+        d as string,
         function (status: boolean) {
           if (status) {
-            router.push({ name: 'login' });
+            router.push({ path: '/home' });
           } else if (route.name === 'face') {
             stillCapture(video, canvas, context);
           }
@@ -65,7 +65,7 @@ function stillCapture(
 function blobToBase64(blob: Blob) {
   return new Promise((resolve, _) => {
     const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
+    reader.onloadend = () => resolve(reader.result as string);
     reader.readAsDataURL(blob);
   });
 }

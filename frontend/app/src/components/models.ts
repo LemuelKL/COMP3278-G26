@@ -1,8 +1,7 @@
-export interface Todo {
-  id: number;
-  content: string;
-}
-
-export interface Meta {
-  totalCount: number;
+export interface Lesson {
+    id: number;
+    course_id: number;
+    venue_id: number;
+    start_time: Date;
+    end_time: Date;
 }

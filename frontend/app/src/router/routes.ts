@@ -1,13 +1,26 @@
 import { RouteRecordRaw } from 'vue-router';
-import IndexPageVue from 'pages/IndexPage.vue';
+import HomePageVue from 'pages/HomePage.vue';
+import ProfilePageVue from 'pages/ProfilePage.vue';
 import LoginPageVue from 'pages/LoginPage.vue';
 import LoginFacePageVue from 'pages/LoginFacePage.vue';
+import MainLayoutVue from 'src/layouts/MainLayout.vue';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'index',
-    component: IndexPageVue,
+    component: MainLayoutVue,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: HomePageVue,
+      },
+      {
+        path: 'profile',
+        name: 'profile',
+        component: ProfilePageVue,
+      }
+    ],
   },
   { path: '/login', name: 'login', component: LoginPageVue },
   { path: '/login/face/:username', name: 'face', component: LoginFacePageVue },

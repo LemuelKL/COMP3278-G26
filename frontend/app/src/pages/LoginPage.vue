@@ -19,26 +19,40 @@
           align="around"
           label="Create Account"
         />
-        <q-btn @click="login" no-caps outline align="around" label="Login" />
+        <q-btn
+          :disable="username.length == 0"
+          @click="login"
+          no-caps
+          outline
+          align="around"
+          label="Login"
+        />
       </q-card-actions>
+      <PortalVue />
     </q-card>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { wahost } from './../boot/qtwebchannel';
 import { useRouter } from 'vue-router';
+import PortalVue from 'src/components/PortalComp.vue';
 
 import { ref } from 'vue';
 const username = ref('');
 
 const router = useRouter();
 function login() {
-  router.push(`/login/face/${username.value}`);
+  wahost?.checkUsername(username.value, function (status: boolean) {
+    if (status) {
+      router.push(`/login/face/${username.value}`);
+    } else {
+      alert('User not found');
+    }
+  });
 }
 function signup() {
   // TODO
   // router.push(`/signup/face/${username.value}`);
 }
-
 </script>
-

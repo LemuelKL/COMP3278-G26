@@ -1,3 +1,4 @@
+import os
 import json
 from datetime import datetime
 
@@ -7,6 +8,8 @@ from facerecognizer import FaceRecognizer
 from PyQt5 import QtWebChannel
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
+
+from dotenv import load_dotenv
 
 
 class WebEnginePage(QWebEnginePage):
@@ -40,18 +43,20 @@ class WebApp(QWebEngineView):
         super().__init__(parent)
 
         # Establish connection to database
+        load_dotenv()
         self.myconn = mysql.connector.connect(
             host="localhost",
-            user="lemuelkl",
-            passwd="294887601",
+            user=os.environ.get("DB_USER", "root"),
+            passwd=os.environ.get("DB_PASSWD", "root"),
             database="facerecognition",
         )
         self.dbcursor = self.myconn.cursor()
         print("Connected to database")
 
-        # holds
+        # sort of like a session
         self.student_id = None
         self.last_login_dt = None
+        self.student_email = None
 
         # Init face recognizer
         # self.recognizer = FaceRecognizer()
@@ -74,6 +79,12 @@ class WebApp(QWebEngineView):
             )
             self.student_id = self.dbcursor.fetchone()[0]
             self.last_login_dt = datetime.now()
+            
+            q = 'SELECT email FROM student WHERE student_id = %s'
+            self.dbcursor.execute(q, (self.student_id,))
+            result = self.dbcursor.fetchone()
+            if result is not None:
+                self.student_email = self.dbcursor.fetchone()[0]
 
         return success
 
@@ -211,7 +222,7 @@ Resources:\n''' + '\n'.join([f"        {r['name']}: {r['url']}" for r in data['r
         "https://api.mailgun.net/v3/sandbox183730ff4e7d4918b3576af185dd82bb.mailgun.org/messages",
         auth=("api", "1d36cbc327e7599f2f323ea1a76c392c-2de3d545-8fb76959"),
         data={"from": "uscheduler@sandbox183730ff4e7d4918b3576af185dd82bb.mailgun.org",
-              "to": ["lemuellee.kl@gmail.com"],
+              "to": [self.student_email if self.student_email is not None else '@@@'], # deliberately trigger API to return 400 Bad Request
               "subject": "Your Upcoming Lesson",
               "text": body})
         return "Sent successfully!" if status.status_code == 200 else "Failed to send!"

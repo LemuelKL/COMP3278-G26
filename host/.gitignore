@@ -1,6 +1,7 @@
 
 .idea
 .ve
+.env
 data
 train.zip
 train.yml

@@ -7,3 +7,4 @@ Pillow
 pysimplegui
 PyQtWebEngine
 requests
+python-dotenv

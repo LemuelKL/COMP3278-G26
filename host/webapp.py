@@ -1,7 +1,8 @@
-from datetime import datetime
 import json
+from datetime import datetime
 
 import mysql.connector
+import requests
 from facerecognizer import FaceRecognizer
 from PyQt5 import QtWebChannel
 from PyQt5.QtCore import *
@@ -27,14 +28,12 @@ class WebEnginePage(QWebEnginePage):
                 url, feature, QWebEnginePage.PermissionDeniedByUser
             )
 
-
 class BypassFaceRecognizer:
     def __init__(self, parent=None):
         pass
 
     def recognize(self, username, image):
         return True
-
 
 class WebApp(QWebEngineView):
     def __init__(self, parent=None):
@@ -147,7 +146,7 @@ class WebApp(QWebEngineView):
 
     @pyqtSlot(result=str)
     def getUpcomingLesson(self):
-        q = """Select course_title, classroom, start_time, end_time, message, zoomLink, notes, other from Student as s, hasCourse as hc, Course as c, TimeSlot as t
+        q = """Select c.course_id, course_title, classroom, start_time, end_time, message, zoomLink from Student as s, hasCourse as hc, Course as c, TimeSlot as t
         where s.student_id = hc.student_id 
         and c.course_id = hc.course_id
         and t.timeSlot_id = c.timeSlot_id
@@ -161,15 +160,19 @@ class WebApp(QWebEngineView):
             return ""
 
         (
+            course_id,
             course_title,
             classroom,
             start_time,
             end_time,
             message,
             zoomLink,
-            notes,
-            other,
         ) = result
+
+        q = '''SELECT name, url FROM Resource WHERE course_id = %s'''
+        self.dbcursor.execute(q, (course_id,))
+        resources = self.dbcursor.fetchall()
+
         return json.dumps(
             {
                 "course_title": course_title,
@@ -178,8 +181,7 @@ class WebApp(QWebEngineView):
                 "end_time": str(end_time),
                 "message": message,
                 "zoomLink": zoomLink,
-                "notes": notes,
-                "other": other,
+                "resources": [{"name": r[0], "url": r[1]} for r in resources] if resources is not None else [],
             }
         )
 
@@ -188,3 +190,28 @@ class WebApp(QWebEngineView):
         q = 'UPDATE Student SET username = %s WHERE student_id = %s'
         self.dbcursor.execute(q, (username, self.student_id))
         self.myconn.commit()
+
+    @pyqtSlot(result=str)
+    def emailMyself(self):
+        data = self.getUpcomingLesson()
+
+        if data == "":
+            return "No upcoming lesson" # should not occur
+
+        data = json.loads(data)
+
+        body = f'''Course: {data['course_title']}
+Classroom: {data['classroom']}
+Time: {data['start_time']} - {data['end_time']}
+Message: {data['message']}
+Zoom Link: {data['zoomLink']}
+Resources:\n''' + '\n'.join([f"        {r['name']}: {r['url']}" for r in data['resources']])
+
+        status = requests.post(
+        "https://api.mailgun.net/v3/sandbox183730ff4e7d4918b3576af185dd82bb.mailgun.org/messages",
+        auth=("api", "1d36cbc327e7599f2f323ea1a76c392c-2de3d545-8fb76959"),
+        data={"from": "uscheduler@sandbox183730ff4e7d4918b3576af185dd82bb.mailgun.org",
+              "to": ["lemuellee.kl@gmail.com"],
+              "subject": "Your Upcoming Lesson",
+              "text": body})
+        return "Sent successfully!" if status.status_code == 200 else "Failed to send!"

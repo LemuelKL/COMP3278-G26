@@ -34,6 +34,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useQuasar } from 'quasar';
 import { wahost } from './../boot/qtwebchannel';
 import { useRouter } from 'vue-router';
 import PortalVue from 'src/components/PortalComp.vue';
@@ -42,12 +43,17 @@ import { ref } from 'vue';
 const username = ref('');
 
 const router = useRouter();
+const $q = useQuasar();
+
 function login() {
   wahost?.checkUsername(username.value, function (status: boolean) {
     if (status) {
       router.push(`/login/face/${username.value}`);
     } else {
-      alert('User not found');
+      $q.dialog({
+        title: 'Error',
+        message: 'User not found',
+      });
     }
   });
 }

@@ -8,7 +8,7 @@
     </q-card-section>
     <q-separator></q-separator>
     <q-card-section>
-      <q-markup-table flat>
+      <q-markup-table flat v-if="upcomingLesson">
         <tr>
           <th class="text-right">Course:</th>
           <td>{{ upcomingLesson.course_title }}</td>
@@ -32,15 +32,18 @@
           <td><q-btn icon="videocam" outline @click="joinZoom">join</q-btn></td>
         </tr>
         <tr>
-          <th class="text-right">Notes:</th>
-          <td>{{ upcomingLesson.notes }}</td>
+          <th><q-separator></q-separator></th>
+          <td><q-separator></q-separator></td>
         </tr>
-        <tr>
-          <th class="text-right">Other:</th>
-          <td>{{ upcomingLesson.other }}</td>
+        <tr v-for="r in upcomingLesson.resources" :key="r.url">
+          <th class="text-right">{{ r.name }}</th>
+          <td>
+            <a :href="r.url">{{ r.url }}</a>
+          </td>
         </tr>
       </q-markup-table>
     </q-card-section>
+    <q-separator></q-separator>
     <q-card-actions align="right">
       <q-btn icon="send" outline @click="emailMyself">Email Myself</q-btn>
     </q-card-actions>
@@ -48,19 +51,26 @@
 </template>
 
 <script lang="ts" setup>
+import { useQuasar } from 'quasar'
 import { ref } from 'vue';
 import { wahost } from 'src/boot/qtwebchannel';
 
-const upcomingLesson = ref({
-  course_title: '',
-  classroom: '',
-  start_time: '',
-  end_time: '',
-  message: '',
-  zoomLink: '',
-  notes: '',
-  other: '',
-});
+interface Lesson {
+  course_title: string;
+  classroom: string;
+  start_time: string;
+  end_time: string;
+  message: string | null;
+  zoomLink: string | null;
+  resources: Resource[];
+}
+
+interface Resource {
+  name: string;
+  url: string;
+}
+
+const upcomingLesson = ref<Lesson | null>(null);
 
 wahost?.getUpcomingLesson((lesson) => {
   if (lesson == '') return;
@@ -73,11 +83,19 @@ setInterval(() => {
 }, 1000);
 
 function joinZoom() {
+  if (upcomingLesson.value?.zoomLink == null) return;
   window.location.href = upcomingLesson.value.zoomLink;
 }
 
+const $q = useQuasar();
+
 function emailMyself() {
-  // wahost?.emailMyself();
-  alert('Email Sent!');
+  wahost?.emailMyself((result: string) => {
+    $q.dialog({
+      title: 'Email',
+      message: result,
+      ok: 'OK',
+    });
+  });
 }
 </script>

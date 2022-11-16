@@ -12,6 +12,7 @@ interface WebAppHost {
   getUpcomingLesson(callback: (upcomingLessonStr: string) => void): void
 
   updateStudentProfile(username: string): void
+  emailMyself(callback: (result: string) => void): void
 }
 
 import { QWebChannel } from 'qwebchannel'

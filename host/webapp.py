@@ -59,8 +59,8 @@ class WebApp(QWebEngineView):
         self.student_email = None
 
         # Init face recognizer
-        # self.recognizer = FaceRecognizer()
-        self.recognizer = BypassFaceRecognizer()
+        self.recognizer = FaceRecognizer()
+        # self.recognizer = BypassFaceRecognizer()
 
         # Init web interfaces
         self.setPage(WebEnginePage(self))
@@ -84,7 +84,12 @@ class WebApp(QWebEngineView):
             self.dbcursor.execute(q, (self.student_id,))
             result = self.dbcursor.fetchone()
             if result is not None:
-                self.student_email = self.dbcursor.fetchone()[0]
+                self.student_email = result[0]
+
+            # DEBUG
+            print('student_id: ', self.student_id)
+            print('last_login_dt: ', self.last_login_dt)
+            print('student_email: ', self.student_email)
 
         return success
 

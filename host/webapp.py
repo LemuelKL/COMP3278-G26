@@ -135,6 +135,10 @@ class WebApp(QWebEngineView):
         return usnername
 
     @pyqtSlot(result=str)
+    def getStudentEmail(self):
+        return self.student_email
+
+    @pyqtSlot(result=str)
     def getTimetable(self):
         q = """Select course_title, classroom, start_time, end_time from Student as s, hasCourse as hc, Course as c, TimeSlot as t
         where s.student_id = hc.student_id 
@@ -201,11 +205,13 @@ class WebApp(QWebEngineView):
             }
         )
 
-    @pyqtSlot(str)
-    def updateStudentProfile(self, username: str):
-        q = 'UPDATE Student SET username = %s WHERE student_id = %s'
-        self.dbcursor.execute(q, (username, self.student_id))
+    @pyqtSlot(str, result=bool)
+    def updateStudentProfile(self, email: str):
+        q = 'UPDATE Student SET email = %s WHERE student_id = %s'
+        self.dbcursor.execute(q, (email, self.student_id))
         self.myconn.commit()
+
+        return True
 
     @pyqtSlot(result=str)
     def emailMyself(self):

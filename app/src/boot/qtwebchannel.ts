@@ -11,7 +11,8 @@ interface WebAppHost {
   getTimetable(callback: (timetableStr: string) => void): void
   getUpcomingLesson(callback: (upcomingLessonStr: string) => void): void
 
-  updateStudentProfile(username: string): void
+  getStudentEmail(callback: (email: string) => void): void
+  updateStudentProfile(email: string, callback: (status: boolean) => void): void
   emailMyself(callback: (result: string) => void): void
 }
 

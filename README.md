@@ -26,5 +26,34 @@
 
 ### VueJS and Quasar
 
-To process you need NodeJS, NPM, and Quasar CLI installed.
+To proceed you need NodeJS, NPM, and Quasar CLI installed.
 
+Then, under `/app`, install the packages:
+```bash
+npm install
+```
+
+To run:
+```bash
+quasar dev
+```
+
+### PyQt
+
+To proceed you need Python 3 (3.10.5 tested) and pip3 installed.
+
+Then, under `/host`, create a virtual environment and install the packages:
+```bash
+python -m venv .ve
+./.ve/scripts/activate
+pip install -r requirements.txt
+```
+
+To run:
+```bash
+python main.py
+```
+
+### MySQL Database
+
+Install the MySQL database on your own. Then execute `reference/DB_query.sql`, it will set up the database schema and populate it with some dummy data.

@@ -6,3 +6,4 @@ train.zip
 train.yml
 __pycache__/
 *.py[cod]
+labels.pickle

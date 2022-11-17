@@ -140,24 +140,26 @@ class WebApp(QWebEngineView):
 
     @pyqtSlot(result=str)
     def getTimetable(self):
-        q = """Select course_title, classroom, start_time, end_time from Student as s, hasCourse as hc, Course as c, TimeSlot as t
+        q = """Select course_title, classroom, start_time, end_time, day from Student as s, hasCourse as hc, Course as c, TimeSlot as t
         where s.student_id = hc.student_id 
         and c.course_id = hc.course_id
         and t.timeSlot_id = c.timeSlot_id
-        and s.student_id = %s"""
+        and s.student_id = %s
+        ORDER BY day ASC, start_time ASC;"""
         self.dbcursor.execute(q, (self.student_id,))
         result = self.dbcursor.fetchall()
 
         return_json_dict = []
 
         for res in result:
-            course_title, classroom, start_time, end_time = res
+            course_title, classroom, start_time, end_time, day = res
             return_json_dict.append(
                 {
                     "course_title": course_title,
                     "classroom": classroom,
                     "start_time": str(start_time),
                     "end_time": str(end_time),
+                    "day": day,
                 }
             )
 
@@ -172,7 +174,7 @@ class WebApp(QWebEngineView):
         and t.timeSlot_id = c.timeSlot_id
         and s.student_id = %s
         and day = WEEKDAY(CURDATE())
-        and (CURRENT_TIME() between start_time and end_time OR TIMEDIFF('01:30',    CURRENT_TIME()) < '01:00');"""
+        and (CURRENT_TIME() between start_time and end_time OR TIMEDIFF(start_time, CURRENT_TIME()) between '00:00:00' and '01:00:00');"""
         self.dbcursor.execute(q, (self.student_id,))
         result = self.dbcursor.fetchone()
 

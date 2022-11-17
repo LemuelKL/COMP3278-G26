@@ -44,7 +44,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'Intro to DBMS1',1,1,'Meng Wah Complex MWT2','Welcome to DBMS','https://hku.zoom.us/rec/play/JR7T4-Hk_AfD1sk1rm6qPzrnukGBMcj5wEDoiiEcje9g78dU8vDNtkAMIJYORJtOn5An54ls6lsX6Pdp.qjBu_xlFu3g_MZw4?continueMode=true'),(2,'Intro to DBMS2',3,0,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(3,'Intro to DBMS3',4,0,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(4,'Intro to DBMS4',8,0,'Library Extension Building LE4','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(5,'Intro to DBMS5',1,1,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(6,'Intro to DBMS6',4,2,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(7,'Intro to DBMS7',6,3,'Meng Wah Complex MWT2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(8,'Intro to DBMS8',3,3,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(9,'Intro to DBMS9',4,3,'Library Extension Building LE4','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(10,'Intro to DBMS10',13,3,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true');
+INSERT INTO `course` VALUES (1,'Intro to DBMS1',1,1,'Meng Wah Complex MWT2','Welcome to DBMS','https://hku.zoom.us/rec/play/JR7T4-Hk_AfD1sk1rm6qPzrnukGBMcj5wEDoiiEcje9g78dU8vDNtkAMIJYORJtOn5An54ls6lsX6Pdp.qjBu_xlFu3g_MZw4?continueMode=true'),(2,'Intro to DBMS2',3,0,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(3,'Intro to DBMS3',7,3,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(4,'Intro to DBMS4',8,0,'Library Extension Building LE4','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(5,'Intro to DBMS5',1,1,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(6,'Intro to DBMS6',4,2,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(7,'Intro to DBMS7',6,3,'Meng Wah Complex MWT2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(8,'Intro to DBMS8',3,3,'Central Prodium, Centennial CPD-LG.01','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(9,'Intro to DBMS9',4,3,'Library Extension Building LE4','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true'),(10,'Intro to DBMS10',13,3,'Chong Yuet Ming Physics CYPP2','Welcome students','https://hku.zoom.us/rec/play/44RSxgjo8sEQbDbCnj5MGU12iphMNNEdfsQ0muIhDlg5K2EaXOUOcVYwfBcOHSHnPmdg8WIpr8cz_rrt._lU525ClQSSUWqMo?continueMode=true');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ CREATE TABLE `hascourse` (
 
 LOCK TABLES `hascourse` WRITE;
 /*!40000 ALTER TABLE `hascourse` DISABLE KEYS */;
-INSERT INTO `hascourse` VALUES (1,1),(3,1),(1,2),(2,2),(3,2),(1,3),(2,3),(3,3),(1,10),(2,10);
+INSERT INTO `hascourse` VALUES (1,1),(2,1),(3,1),(1,2),(2,2),(3,2),(1,3),(2,3),(3,3),(1,10);
 /*!40000 ALTER TABLE `hascourse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `record` (
 
 LOCK TABLES `record` WRITE;
 /*!40000 ALTER TABLE `record` DISABLE KEYS */;
-INSERT INTO `record` VALUES (1,'2022-11-14 10:14:07','2022-11-14 10:15:57',700),(1,'2022-11-14 11:44:43','2022-11-14 12:12:11',500),(1,'2022-11-15 18:14:07','2022-11-15 18:19:07',300),(2,'2022-11-15 18:20:57','2022-11-14 18:30:58',60),(3,'2022-11-16 09:32:15','2022-11-16 10:48:19',60),(2,'2022-11-16 02:36:28','2022-11-16 02:38:40',131),(2,'2022-11-16 02:48:31','2022-11-16 02:49:12',40),(2,'2022-11-16 02:49:14','2022-11-16 02:49:47',33),(2,'2022-11-16 03:01:40','2022-11-16 03:02:44',63),(2,'2022-11-16 03:07:34','2022-11-16 03:07:52',17),(2,'2022-11-16 03:25:48','2022-11-16 03:32:26',398),(2,'2022-11-16 03:32:38','2022-11-16 03:47:02',863),(2,'2022-11-16 03:49:33','2022-11-16 03:49:42',8),(2,'2022-11-16 03:51:08','2022-11-16 03:51:30',22),(2,'2022-11-16 03:51:38','2022-11-16 03:51:42',3),(2,'2022-11-16 03:51:43','2022-11-16 03:53:29',105),(2,'2022-11-16 03:53:31','2022-11-16 03:56:28',176),(2,'2022-11-16 04:05:17','2022-11-16 04:05:33',15),(2,'2022-11-16 04:05:36','2022-11-16 04:13:27',470),(2,'2022-11-16 04:13:30','2022-11-16 04:27:38',848),(2,'2022-11-16 04:39:39','2022-11-16 04:43:17',217),(2,'2022-11-16 04:52:04','2022-11-16 04:52:17',12),(2,'2022-11-16 04:56:21','2022-11-16 04:57:21',60),(2,'2022-11-16 04:58:40','2022-11-16 04:58:42',1),(2,'2022-11-16 05:00:05','2022-11-16 05:00:08',2),(2,'2022-11-16 05:00:19','2022-11-16 05:01:03',43),(2,'2022-11-16 05:12:02','2022-11-16 05:23:31',688),(2,'2022-11-16 05:52:38','2022-11-16 05:52:47',8),(2,'2022-11-16 06:08:29','2022-11-16 06:12:29',240),(2,'2022-11-16 06:12:30','2022-11-16 06:12:32',1),(2,'2022-11-16 06:12:50','2022-11-16 06:12:52',1),(2,'2022-11-16 06:12:53','2022-11-16 06:14:26',93),(2,'2022-11-16 06:14:29','2022-11-16 06:15:45',76),(1,'2022-11-17 01:37:08','2022-11-17 01:37:41',33),(2,'2022-11-17 01:37:51','2022-11-17 01:37:54',3),(1,'2022-11-17 01:37:56','2022-11-17 01:50:08',731),(1,'2022-11-17 01:50:12','2022-11-17 01:52:11',119),(1,'2022-11-17 01:52:17','2022-11-17 02:05:25',787),(1,'2022-11-17 02:26:27','2022-11-17 02:38:03',696),(2,'2022-11-17 03:42:42','2022-11-17 03:46:29',226),(2,'2022-11-17 03:59:16','2022-11-17 04:02:04',168),(2,'2022-11-17 04:24:29','2022-11-17 04:25:40',71);
+INSERT INTO `record` VALUES (1,'2022-11-14 10:14:07','2022-11-14 10:15:57',700),(1,'2022-11-14 11:44:43','2022-11-14 12:12:11',500),(1,'2022-11-15 18:14:07','2022-11-15 18:19:07',300),(2,'2022-11-15 18:20:57','2022-11-14 18:30:58',60),(3,'2022-11-16 09:32:15','2022-11-16 10:48:19',60),(2,'2022-11-16 02:36:28','2022-11-16 02:38:40',131),(2,'2022-11-16 02:48:31','2022-11-16 02:49:12',40),(2,'2022-11-16 02:49:14','2022-11-16 02:49:47',33),(2,'2022-11-16 03:01:40','2022-11-16 03:02:44',63),(2,'2022-11-16 03:07:34','2022-11-16 03:07:52',17),(2,'2022-11-16 03:25:48','2022-11-16 03:32:26',398),(2,'2022-11-16 03:32:38','2022-11-16 03:47:02',863),(2,'2022-11-16 03:49:33','2022-11-16 03:49:42',8),(2,'2022-11-16 03:51:08','2022-11-16 03:51:30',22),(2,'2022-11-16 03:51:38','2022-11-16 03:51:42',3),(2,'2022-11-16 03:51:43','2022-11-16 03:53:29',105),(2,'2022-11-16 03:53:31','2022-11-16 03:56:28',176),(2,'2022-11-16 04:05:17','2022-11-16 04:05:33',15),(2,'2022-11-16 04:05:36','2022-11-16 04:13:27',470),(2,'2022-11-16 04:13:30','2022-11-16 04:27:38',848),(2,'2022-11-16 04:39:39','2022-11-16 04:43:17',217),(2,'2022-11-16 04:52:04','2022-11-16 04:52:17',12),(2,'2022-11-16 04:56:21','2022-11-16 04:57:21',60),(2,'2022-11-16 04:58:40','2022-11-16 04:58:42',1),(2,'2022-11-16 05:00:05','2022-11-16 05:00:08',2),(2,'2022-11-16 05:00:19','2022-11-16 05:01:03',43),(2,'2022-11-16 05:12:02','2022-11-16 05:23:31',688),(2,'2022-11-16 05:52:38','2022-11-16 05:52:47',8),(2,'2022-11-16 06:08:29','2022-11-16 06:12:29',240),(2,'2022-11-16 06:12:30','2022-11-16 06:12:32',1),(2,'2022-11-16 06:12:50','2022-11-16 06:12:52',1),(2,'2022-11-16 06:12:53','2022-11-16 06:14:26',93),(2,'2022-11-16 06:14:29','2022-11-16 06:15:45',76),(1,'2022-11-17 01:37:08','2022-11-17 01:37:41',33),(2,'2022-11-17 01:37:51','2022-11-17 01:37:54',3),(1,'2022-11-17 01:37:56','2022-11-17 01:50:08',731),(1,'2022-11-17 01:50:12','2022-11-17 01:52:11',119),(1,'2022-11-17 01:52:17','2022-11-17 02:05:25',787),(1,'2022-11-17 02:26:27','2022-11-17 02:38:03',696),(2,'2022-11-17 03:42:42','2022-11-17 03:46:29',226),(2,'2022-11-17 03:59:16','2022-11-17 04:02:04',168),(2,'2022-11-17 04:24:29','2022-11-17 04:25:40',71),(2,'2022-11-17 13:43:11','2022-11-17 13:51:20',488),(2,'2022-11-17 13:53:00','2022-11-17 13:54:59',118),(2,'2022-11-17 13:55:27','2022-11-17 13:55:59',31),(2,'2022-11-17 14:05:51','2022-11-17 14:12:18',386),(2,'2022-11-17 14:12:23','2022-11-17 14:13:14',51),(2,'2022-11-17 14:48:13','2022-11-17 14:48:35',22);
 /*!40000 ALTER TABLE `record` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,13 +110,14 @@ DROP TABLE IF EXISTS `resource`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `resource` (
-  `resource_id` int NOT NULL,
   `course_id` int NOT NULL,
   `url` varchar(200) NOT NULL,
   `name` varchar(45) NOT NULL DEFAULT '<not set>',
+  `resource_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`resource_id`),
   KEY `resource_ibfk_1_idx` (`course_id`),
   CONSTRAINT `resource_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +126,7 @@ CREATE TABLE `resource` (
 
 LOCK TABLES `resource` WRITE;
 /*!40000 ALTER TABLE `resource` DISABLE KEYS */;
-INSERT INTO `resource` VALUES (0,10,'https://www.example.com','Tutorial 1 Exercise'),(0,10,'https://www.example.com','Lecture 1 Notes');
+INSERT INTO `resource` VALUES (10,'https://www.example.com','Tutorial 1 Exercise',1),(10,'https://www.example.com','Lecture 1 Notes',2),(3,'https://stealmybooks.com','List of Books',3);
 /*!40000 ALTER TABLE `resource` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-17 13:27:26
+-- Dump completed on 2022-11-17 14:49:23

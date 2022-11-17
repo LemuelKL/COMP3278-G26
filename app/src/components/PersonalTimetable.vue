@@ -13,14 +13,22 @@
           <tr>
             <th class="text-left">Course</th>
             <th class="text-left">Venue</th>
+            <th class="text-right">Day</th>
             <th class="text-right">Start time</th>
             <th class="text-right">End time</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="lesson in timetable" :key="JSON.stringify(lesson)">
+          <tr
+            v-for="lesson in timetable"
+            :key="JSON.stringify(lesson)"
+            :class="{ today: today_weekday == lesson.day }"
+          >
             <td>{{ lesson.course_title }}</td>
             <td>{{ lesson.classroom }}</td>
+            <td class="text-right">
+              {{ weekday[lesson.day] }}
+            </td>
             <td class="text-right" style="font-family: monospace">
               {{ lesson.start_time }}
             </td>
@@ -38,11 +46,15 @@
 import { wahost } from 'src/boot/qtwebchannel';
 import { ref } from 'vue';
 
+const weekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const today_weekday = new Date().getDay() - 1;
+
 interface Lesson {
   course_title: string;
   classroom: string;
   start_time: string;
   end_time: string;
+  day: number;
 }
 
 const timetable = ref<Lesson[]>([]);
@@ -55,3 +67,9 @@ setInterval(() => {
   timeNow.value = new Date().toLocaleString();
 }, 1000);
 </script>
+
+<style scoped>
+.today {
+  background-color: blanchedalmond;
+}
+</style>

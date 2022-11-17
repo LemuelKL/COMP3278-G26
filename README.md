@@ -56,7 +56,7 @@ python main.py
 
 ### MySQL Database
 
-Install the MySQL database on your own. Then execute `reference/DB_query.sql`, it will set up the database schema and populate it with some dummy data.
+Install the MySQL database on your own. Then execute `sql/dump.sql`, it will set up the database schema and populate it with some dummy data.
 
 Note that the default database connection is `localhost` with username and password both as `root`. You can modify the login details by creating a `.env` under `/host`:
 ```.env

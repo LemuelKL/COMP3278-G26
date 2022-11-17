@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-drawer show-if-above :width="250" :breakpoint="600" bordered>
+    <q-drawer show-if-above :width="200" :breakpoint="600" bordered>
       <q-scroll-area class="fit">
         <div class="column justify-between" style="height: 100vh">
           <div>
@@ -48,7 +48,7 @@
             <div class="col column justify-center q-gutter-sm">
               <q-btn outline @click="logout">Logout</q-btn>
               <div
-                class="text-subtitle2 text-grey-6"
+                class="text-grey-6 text-caption text-center"
                 style="font-family: monospace"
               >
                 {{ lastLoginDtStr }}

@@ -87,9 +87,9 @@ class WebApp(QWebEngineView):
                 self.student_email = result[0]
 
             # DEBUG
-            print('student_id: ', self.student_id)
-            print('last_login_dt: ', self.last_login_dt)
-            print('student_email: ', self.student_email)
+            # print('student_id: ', self.student_id)
+            # print('last_login_dt: ', self.last_login_dt)
+            # print('student_email: ', self.student_email)
 
         return success
 
@@ -212,6 +212,7 @@ class WebApp(QWebEngineView):
         q = 'UPDATE Student SET email = %s WHERE student_id = %s'
         self.dbcursor.execute(q, (email, self.student_id))
         self.myconn.commit()
+        self.student_email = email
 
         return True
 

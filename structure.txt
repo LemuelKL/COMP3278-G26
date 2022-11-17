@@ -1,0 +1,13 @@
+root/
+├─ app/                         # Quasar app
+   ├─ src/
+      ├─ boot/
+         ├─ qtwebchannel.ts     # Establishs and exposes API to frontend
+├─ host/                        # PyQt instance
+   ├─ main.py                   # Application entry point
+   ├─ webapp.py                 # Hosts the WebView and acts as the API server
+   ├─ facerecognizer.py         # Face recognition
+├─ sql/
+   ├─ dump.sql                  # Database schema and data dump
+
+   

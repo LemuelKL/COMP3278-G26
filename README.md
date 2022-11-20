@@ -64,3 +64,13 @@ Note that the default database connection is `localhost` with username and passw
 DB_USER=lemuelkl
 DB_PASSWD=comp3278
 ```
+
+### Facial login
+
+You need to train the model using `train.py` by:
+
+1. prepare images of your front face
+2. put these images under `/host/data/<your_username>`
+3. images should be named `<your_username001>.jpg`, `<your_username002>.jpg`, ... ,`<your_username100>.jpg`
+4. run `train.py` which will produce the a `labels.pickle` and the trained model `train.yml`
+

@@ -26,7 +26,7 @@
 
 ### VueJS and Quasar
 
-To proceed you need NodeJS, NPM, and Quasar CLI installed.
+To proceed you need NodeJS, NPM, and Quasar CLI (optional) installed.
 
 Then, under `/app`, install the packages:
 ```bash
@@ -35,7 +35,8 @@ npm install
 
 To run:
 ```bash
-quasar dev
+quasar dev     # with Quasar CLI
+npx quasar dev # without Quasar CLI
 ```
 
 ### PyQt
